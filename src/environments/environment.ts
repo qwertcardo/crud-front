@@ -2,4 +2,4 @@ export const environment = {
   production: false
 };
 
-export const apiUrl = "http://localhost:8080";
+export const apiUrl = "https://qwertcardo-crud-back.herokuapp.com";
