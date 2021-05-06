@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center mt-2">
+    <div class="card col-9">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">Login</h2>
+            <form [formGroup]="loginForm" (keyup.enter)="login()">
+                <div class="form-floating mb-3">
+                    <input formControlName="principal" type="text" id="principalInput" class="form-control" placeholder="Login">
+                    <label for="principalInput">Enter with Login or Email</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input formControlName="credential" type="password" id="credentialInput" class="form-control" placeholder="Password">
+                    <label for="credentialInput">Insert Password</label>
+                </div>
+            </form>
+            <div class="row my-2 mx-0">
+                <button (click)="login()" class="btn btn-success mb-1">Login</button>
+                <button (click)="resetForm()"class="btn btn-outline-secondary mb-1">Cancel</button>
+            </div>
+        </div>
+        <div class="card-footer text-muted text-center">
+            <span class="card-text">Already not a member? <a routerLink="/signup" class="card-link text-decoration-none">SignUp</a></span> 
+        </div>
+    </div>
+</div>
