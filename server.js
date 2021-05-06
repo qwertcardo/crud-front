@@ -9,3 +9,7 @@ const express = require('express');
 const app = express();
 const app = express();
 app.use(requireHTTPS);
+app.get("/", function(req, res) {
+    res.sendFile("index.html", {root: "src/index.html"}
+  );
+  });
