@@ -1,0 +1,80 @@
+<div class="">
+    <div class="d-flex justify-content-center">
+        <div class="col">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Bem Vindo</h1>
+                <form [formGroup]="profileForm">
+                        <div class="row mx-1 mb-2">
+                            <label for="inputName" class="form-label">Full name</label>
+                            <input formControlName="name" type="text" class="form-control" id="inputName" [readonly]="!onEdit">
+                        </div>
+                        <div class="row mx-1 mb-2">
+                            <label for="inputEmail" class="form-label">Email Adress</label>
+                            <input formControlName="email" type="email" class="form-control" id="inputEmail" [readonly]="!onEdit">
+                        </div>
+                        <div class="row mx-1 mb-2">
+                            <label for="inputBirthDate" class="form-label">Born Date</label>
+                            <input formControlName="birthDate" type="date" class="form-control" id="inputBirthDate" [readonly]="!onEdit">
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col mx-1">
+                                <label for="inputLogin" class="form-label">Login</label>
+                                <input formControlName="login" type="text" class="form-control" id="inputLogin" [readonly]="!onEdit">
+                            </div>
+                            <div class="col mx-1">
+                                <label for="inputPassword" class="form-label">Password</label>
+                                <input formControlName="password" type="password" class="form-control" id="inputPassword" [readonly]="!onEdit" placeholder="******">
+                            </div>
+                        </div>  
+                </form>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!onEdit && !onDelete" class="d-flex justify-content-center mb-2">
+        <button (click)=edit() class="col-6 btn btn-outline-secondary">Edit</button>
+    </div>
+    <div *ngIf="!onEdit && !onDelete" class="d-flex justify-content-center">
+        <button (click)=delete() class="col-6 btn btn-outline-danger">Exclude Account</button>
+    </div>
+    <div *ngIf="onEdit" class="d-flex justify-content-around">
+        <button (click)=update() class="col-5 btn btn-success">Save</button>
+        <button (click)=edit() class="col-5 btn btn-outline-secondary">Cancel</button>
+    </div>
+    <div *ngIf="onDelete" class="d-flex justify-content-around">
+        <button (click)=confirmDelete() class="col-5 btn btn-danger">Confirm delete?</button>
+        <button (click)=delete() class="col-5 btn btn-outline-secondary">Cancel</button>
+    </div>
+    <div *ngIf="onDelete">
+        <h1 class="text-center text-danger my-2"><strong>ATENTION!</strong></h1>
+        <h3 class="text-center text-danger mt-3">Excluding account will delete all products data associated with your profile!*</h3>
+        <h5 class="text-center text-danger mt-3">Deleted Data can not be recoverd in futher!**</h5>
+    </div>
+    <div *ngIf="products.length" class="position-absolute bottom-0 start-0 end-0">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4 class="text-center">Statistic</h4>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Selled</th>
+                    <th scope="col">In Stock</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let product of products">
+                    <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.selled}}</td>
+                    <td>{{product.inStock}}</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            <div *ngIf="good" class="card-footer text-muted">Good Job!, you have already sold: {{sellPercentageReached()}}% of your total products amount!</div>
+            <div *ngIf="notBad" class="card-footer text-muted">Things are being bigger you have selled: {{sellPercentageReached()}}% of your total products amount!</div>
+            <div *ngIf="bad" class="card-footer text-muted">You Sold: {{sellPercentageReached()}}% of your total products amount!</div>
+        </div>
+    </div>
+</div>

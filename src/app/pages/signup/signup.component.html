@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-center mt-2">
+    <div class="card col-9">
+        <div class="card-body">
+            <h2 class="card-title text-center mb-4">SignUp</h2>
+            <form [formGroup]="signupForm">
+                    <div class="col mb-2">
+                        <label for="inputName" class="form-label">Full name</label>
+                        <input formControlName="name" type="text" class="form-control" id="inputName">
+                    </div>
+                    <div class="col mb-2">
+                        <label for="inputEmail" class="form-label">Email Adress</label>
+                        <input formControlName="email" type="email" class="form-control" id="inputEmail">
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <label for="inputCpf" class="form-label">CPF</label>
+                            <input formControlName="cpf" type="text" class="form-control" id="inputCpf">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputBirthDate" class="form-label">Born Date</label>
+                            <input formControlName="birthDate" type="date" class="form-control" id="inputBirthDate">
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-6">
+                            <label for="inputLogin" class="form-label">Login</label>
+                            <input formControlName="login" type="text" class="form-control" id="inputLogin">
+                        </div>
+                        <div class="col-6">
+                            <label for="inputPassword" class="form-label">Password</label>
+                            <input formControlName="password" type="password" class="form-control" id="inputPassword">
+                        </div>
+                    </div>  
+            </form>
+            <div class="row my-2 mx-0">
+                <button (click)="save()" class="btn btn-success mb-1">Register</button>
+            </div>
+        </div>
+        <div class="card-footer text-muted text-center">
+            <span class="card-text">Already have account? <a routerLink="/login" class="card-link text-decoration-none">Login</a></span> 
+        </div>
+    </div>
+</div>
