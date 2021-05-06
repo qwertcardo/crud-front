@@ -22,7 +22,13 @@ export interface Product {
     id: number;
     name: string;
     description: string;
+    price: number;
     inStock: number;
-    selled: number;
-    owner: {id: number, name: string};
+    selled?: number;
+    owner?: {id?: number, name?: string};
+}
+
+export interface ProductSell {
+    userId: number;
+    amount: number;
 }

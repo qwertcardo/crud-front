@@ -2,7 +2,6 @@
     <div class="d-flex justify-content-center">
         <div class="col">
             <div class="card-body">
-                <h1 class="card-title text-center mb-4">Bem Vindo</h1>
                 <form [formGroup]="profileForm">
                         <div class="row mx-1 mb-2">
                             <label for="inputName" class="form-label">Full name</label>
@@ -49,27 +48,27 @@
         <h3 class="text-center text-danger mt-3">Excluding account will delete all products data associated with your profile!*</h3>
         <h5 class="text-center text-danger mt-3">Deleted Data can not be recoverd in futher!**</h5>
     </div>
-    <div *ngIf="products.length" class="position-absolute bottom-0 start-0 end-0">
+    <div *ngIf="products.length" class="mt-4">
         <div class="card text-center">
             <div class="card-header">
                 <h4 class="text-center">Statistic</h4>
             </div>
             <div class="card-body">
                 <table class="table">
-                <thead>
-                    <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Selled</th>
-                    <th scope="col">In Stock</th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let product of products">
-                    <tr>
-                    <td>{{product.name}}</td>
-                    <td>{{product.selled}}</td>
-                    <td>{{product.inStock}}</td>
-                    </tr>
-                </tbody>
+                    <thead>
+                        <tr>
+                        <th scope="col">Product</th>
+                        <th scope="col">Selled</th>
+                        <th scope="col">In Stock</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let product of products">
+                        <tr>
+                        <td>{{product.name}}</td>
+                        <td>{{product.selled}}</td>
+                        <td>{{product.inStock}}</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             <div *ngIf="good" class="card-footer text-muted">Good Job!, you have already sold: {{sellPercentageReached()}}% of your total products amount!</div>
