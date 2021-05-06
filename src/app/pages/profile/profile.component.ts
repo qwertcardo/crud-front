@@ -57,16 +57,16 @@ export class ProfileComponent implements OnInit {
 
   sellPercentageReached(){
     if(this.products.length){
-      const amount = this.products.map(product => product.inStock + product.selled).reduce((a,b) => a + b);
-      const selled = this.products.map(product => product.selled).reduce((a,b) => a + b);
-      if((selled * 100 / amount) > 70) {
+      const amount = this.products.map(product => product.inStock + product.selled!).reduce((a,b) => a + b);
+      const selled = this.products.map(product => product.selled).reduce((a,b) => a! + b!);
+      if((selled! * 100 / amount) > 70) {
         this.good = true;
-      } else if((selled * 100 / amount) > 50) {
+      } else if((selled! * 100 / amount) > 50) {
         this.notBad = true;
       } else {
         this.bad = true
       };
-      return Math.floor(selled * 100 / amount);
+      return Math.floor(selled! * 100 / amount);
     } else {
       return 0;
     }
@@ -81,7 +81,10 @@ export class ProfileComponent implements OnInit {
 
   confirmDelete(){
     this.userService.delete(this.userId!).subscribe(
-      () => this.router.navigate(["login"]),
+      () => {
+        this.router.navigate([""]);
+        sessionStorage.clear();
+      },
       err => console.log(err)
     );
   }

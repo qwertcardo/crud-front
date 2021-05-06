@@ -1,3 +1,4 @@
+import { ProductsComponent } from './pages/products/products.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: "signup", component: SignupComponent, canActivate: [AuthGuardService]},
 
   {path: "", component: HomeComponent},
-  {path: "profile", component: ProfileComponent}
+  {path: "profile", component: ProfileComponent},
+  {path: "products", component: ProductsComponent}
 ];
 
 @NgModule({

@@ -12,6 +12,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     SignupComponent,
     HomeComponent,
     NavComponent,
-    ProfileComponent
+    ProfileComponent,
+    FooterComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
